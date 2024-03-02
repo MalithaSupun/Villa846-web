@@ -24,7 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
         let gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&to=${encodedTo}&su=${encodedSubject}&body=${encodedBody}`;
 
         // Check if it's a mobile device
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            let confirmMsg = "Do you want to open Gmail app?";
+            if (confirm(confirmMsg)) {
+                window.location.href = `googlegmail:///co?to=${encodedTo}&subject=${encodedSubject}&body=${encodedBody}`;
+            } else {
+                window.open(gmailUrl, '_blank');
+            }
+        } else if (/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             // Open Gmail app with intent URI
             let intentUri = `intent://send?to=${encodedTo}&subject=${encodedSubject}&body=${encodedBody}#Intent;package=com.google.android.gm;scheme=mailto;end`;
             window.location.href = intentUri;
