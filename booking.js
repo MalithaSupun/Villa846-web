@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                    "Room Type: \n\n" +
                    "Thank you!";
 
-        // Create a mailto link with the email content
+        // Create a mailto link with the email contenttt
         let mailtoLink = "mailto:malithasupun2@gmail.com" +
                          "?subject=" + encodeURIComponent(subject) +
                          "&body=" + encodeURIComponent(body);
