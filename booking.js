@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                          "?subject=" + encodeURIComponent(subject) +
                          "&body=" + encodeURIComponent(body);
 
-        // Open the user's email client or webmail service with the mailto link
+        // Open the user's default email client or webmail service with the mailto link
         window.location.href = mailtoLink;
     });
 });
