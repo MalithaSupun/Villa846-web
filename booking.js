@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create Gmail compose URL
         let gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&to=${encodedTo}&su=${encodedSubject}&body=${encodedBody}`;
 
-        // Open Gmail compose page
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            window.location.href = gmailUrl;
+        // Check if it's a mobile device
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Open Gmail app with intent URI
+            let intentUri = `intent://send?to=${encodedTo}&subject=${encodedSubject}&body=${encodedBody}#Intent;package=com.google.android.gm;scheme=mailto;end`;
+            window.location.href = intentUri;
         } else {
+            // Open Gmail compose page in web browser
             window.open(gmailUrl, '_blank');
         }
     });
