@@ -13,38 +13,46 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (credential) {
                         let userEmail = credential.id;
                         let userWhatsapp = prompt("Please enter your WhatsApp number:");
-                        composeEmail(userEmail, userWhatsapp);
+                        let checkInDate = prompt("Please enter your Check-in Date (YYYY-MM-DD):");
+                        let checkOutDate = prompt("Please enter your Check-out Date (YYYY-MM-DD):");
+                        composeEmail(userEmail, userWhatsapp, checkInDate, checkOutDate);
                     } else {
-                        // If no credentials found, prompt the user to enter their email and WhatsApp number
+                        // If no credentials found, prompt the user to enter their email, WhatsApp number, Check-in Date, and Check-out Date
                         let userEmail = prompt("Please enter your email:");
                         let userWhatsapp = prompt("Please enter your WhatsApp number:");
-                        composeEmail(userEmail, userWhatsapp);
+                        let checkInDate = prompt("Please enter your Check-in Date (YYYY-MM-DD):");
+                        let checkOutDate = prompt("Please enter your Check-out Date (YYYY-MM-DD):");
+                        composeEmail(userEmail, userWhatsapp, checkInDate, checkOutDate);
                     }
                 })
                 .catch((error) => {
-                    // If an error occurs, prompt the user to enter their email and WhatsApp number
+                    // If an error occurs, prompt the user to enter their email, WhatsApp number, Check-in Date, and Check-out Date
                     console.error('Error retrieving credentials:', error);
                     let userEmail = prompt("Please enter your email:");
                     let userWhatsapp = prompt("Please enter your WhatsApp number:");
-                    composeEmail(userEmail, userWhatsapp);
+                    let checkInDate = prompt("Please enter your Check-in Date (YYYY-MM-DD):");
+                    let checkOutDate = prompt("Please enter your Check-out Date (YYYY-MM-DD):");
+                    composeEmail(userEmail, userWhatsapp, checkInDate, checkOutDate);
                 });
         } else {
-            // If the browser does not support the credentials management API, prompt the user to enter their email and WhatsApp number
+            // If the browser does not support the credentials management API, prompt the user to enter their email, WhatsApp number, Check-in Date, and Check-out Date
             let userEmail = prompt("Please enter your email:");
             let userWhatsapp = prompt("Please enter your WhatsApp number:");
-            composeEmail(userEmail, userWhatsapp);
+            let checkInDate = prompt("Please enter your Check-in Date (YYYY-MM-DD):");
+            let checkOutDate = prompt("Please enter your Check-out Date (YYYY-MM-DD):");
+            composeEmail(userEmail, userWhatsapp, checkInDate, checkOutDate);
         }
     });
 
-    // Function to compose the email with the provided email address and WhatsApp number
-    function composeEmail(userEmail, userWhatsapp) {
+    // Function to compose the email with the provided email address, WhatsApp number, Check-in Date, and Check-out Date
+    function composeEmail(userEmail, userWhatsapp, checkInDate, checkOutDate) {
         // Compose the email content
         let subject = "villa-846-check availability for booking";
         let body = "Please fill in the following details to make a reservation:\n\n" +
                    "Email: " + userEmail + "\n" +
-                   "Check-in Date: \n" +
+                   "Check-in Date: " + checkInDate + "\n" +
+                   "Check-out Date: " + checkOutDate + "\n" +
                    "WhatsApp: " + userWhatsapp + "\n" +
-                   "Check-out Date: \n" +
                    "Number of Rooms: \n" +
                    "How Many Peopels: \n\n" +
                    "Thank you!";
