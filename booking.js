@@ -7,22 +7,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Compose the email content
         let subject = "villa-846-check availability for booking";
         let body = "Please fill in the following details to make a reservation:\n\n" +
-                   "Name: \n" +
                    "Email: \n" +
                    "Check-in Date: \n" +
+                   "My whatsapp: \n" +
                    "Check-out Date: \n" +
-                   "Number of Adults: \n" +
-                   "Number of Children: \n" +
                    "Number of Rooms: \n" +
-                   "Room Type: \n\n" +
+                   "How Many Peopels: \n\n" +
                    "Thank you!";
 
-        // Create a mailto link with the email contenttt
-        let mailtoLink = "mailto:malithasupun2@gmail.com" +
-                         "?subject=" + encodeURIComponent(subject) +
-                         "&body=" + encodeURIComponent(body);
+        // Encode email content
+        let encodedTo = encodeURIComponent("malithasupun2@gmail.com");
+        let encodedSubject = encodeURIComponent(subject);
+        let encodedBody = encodeURIComponent(body);
 
-        // Open the user's default email client or webmail service with the mailto link
-        window.location.href = mailtoLink;
+        // Create Gmail compose URL
+        let gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&to=${encodedTo}&su=${encodedSubject}&body=${encodedBody}`;
+
+        // Open Gmail compose page
+        window.open(gmailUrl, '_blank');
     });
 });
