@@ -12,34 +12,38 @@ document.addEventListener('DOMContentLoaded', function() {
                     // If credentials are found, use the email
                     if (credential) {
                         let userEmail = credential.id;
-                        composeEmail(userEmail);
+                        let userWhatsapp = prompt("Please enter your WhatsApp number:");
+                        composeEmail(userEmail, userWhatsapp);
                     } else {
-                        // If no credentials found, prompt the user to enter their email
+                        // If no credentials found, prompt the user to enter their email and WhatsApp number
                         let userEmail = prompt("Please enter your email:");
-                        composeEmail(userEmail);
+                        let userWhatsapp = prompt("Please enter your WhatsApp number:");
+                        composeEmail(userEmail, userWhatsapp);
                     }
                 })
                 .catch((error) => {
-                    // If an error occurs, prompt the user to enter their email
+                    // If an error occurs, prompt the user to enter their email and WhatsApp number
                     console.error('Error retrieving credentials:', error);
                     let userEmail = prompt("Please enter your email:");
-                    composeEmail(userEmail);
+                    let userWhatsapp = prompt("Please enter your WhatsApp number:");
+                    composeEmail(userEmail, userWhatsapp);
                 });
         } else {
-            // If the browser does not support the credentials management API, prompt the user to enter their email
+            // If the browser does not support the credentials management API, prompt the user to enter their email and WhatsApp number
             let userEmail = prompt("Please enter your email:");
-            composeEmail(userEmail);
+            let userWhatsapp = prompt("Please enter your WhatsApp number:");
+            composeEmail(userEmail, userWhatsapp);
         }
     });
 
-    // Function to compose the email with the provided email address
-    function composeEmail(userEmail) {
+    // Function to compose the email with the provided email address and WhatsApp number
+    function composeEmail(userEmail, userWhatsapp) {
         // Compose the email content
         let subject = "villa-846-check availability for booking";
         let body = "Please fill in the following details to make a reservation:\n\n" +
                    "Email: " + userEmail + "\n" +
                    "Check-in Date: \n" +
-                   "My whatsapp: \n" +
+                   "WhatsApp: " + userWhatsapp + "\n" +
                    "Check-out Date: \n" +
                    "Number of Rooms: \n" +
                    "How Many Peopels: \n\n" +
