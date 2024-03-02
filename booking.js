@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&to=${encodedTo}&su=${encodedSubject}&body=${encodedBody}`;
 
         // Open Gmail compose page
-        window.open(gmailUrl, '_blank');
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            window.location.href = gmailUrl;
+        } else {
+            window.open(gmailUrl, '_blank');
+        }
     });
 });
