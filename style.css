@@ -175,37 +175,6 @@ section{
 
 /* end */
 
-/* availability */
-
-.availability form{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    background: #eee;
-    padding: 2rem;
-    border-radius: .5rem;
-}
-
-.availability form .box{
-    flex: 1 1 20rem;
-}
-
-.availability form .box p{
-    font-size: 2rem;
-    color: var(--primary);
-}
-
-.availability form .box .input{
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.8rem;
-    color: var(--black);
-    margin: 1rem 0;
-    border-radius: .5rem;
-}
-
-/* end */
-
 /* about */
 
 .about .row{
